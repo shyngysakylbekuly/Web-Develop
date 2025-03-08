@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import {HeaderComponent} from './header/header.html';
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
             { path: 'products/:productId', component: ProductDetailsComponent },
             { path: 'cart', component: CartComponent },
             { path: 'shipping', component: ShippingComponent },
+            {path,'header',component:HeaderComponent}
         ]),
     ],
     declarations: [
@@ -36,6 +38,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
         ProductDetailsComponent,
         CartComponent,
         ShippingComponent,
+        HeaderComponent,
     ],
     bootstrap: [AppComponent],
 })

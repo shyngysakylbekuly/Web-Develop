@@ -1,7 +1,13 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const taskInput = document.getElementById("taskInput");
-    const taskList = document.getElementById("taskList");
+    const taskList = document.getElementById("taskList")
+    const taskCounter=document.getElementById("taskCounter");
+
+    let counter=0;
+    function updateCounter(){
+
+    }
 
     function addTask() {
         const taskText = taskInput.value.trim();
@@ -15,10 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
         removeBtn.classList.add("remove-btn");
         removeBtn.addEventListener("click", () => {
             taskList.removeChild(li);
+            counter--;
+            updateCounter();
         });
 
         li.appendChild(removeBtn);
         taskList.appendChild(li);
+        counter++;
+        updateCounter();
 
         taskInput.value = "";
     }
@@ -28,5 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.key === "Enter") {
             addTask();
         }
+
     });
+    taskInput.addEventListener("keydown", (event) => {
+        if(event.key === "Control"){
+            addTask();
+        }
+    })
 });
