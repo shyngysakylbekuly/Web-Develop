@@ -11,13 +11,14 @@ export class AlbumsService {
 
   BASE_URL = 'https://jsonplaceholder.typicode.com'
 
-  constructor(private client: HttpClient) { }
+  constructor(private client: HttpClient) {
+  }
 
-  getAlbums(): Observable<Album[]>{
+  getAlbums(): Observable<Album[]> {
     return this.client.get<Album[]>(`${this.BASE_URL}/albums`)
   }
 
-  getAlbum(id: number): Observable<Album>{
+  getAlbum(id: number): Observable<Album> {
     return this.client.get<Album>(`${this.BASE_URL}/albums/${id}`)
   }
 
@@ -25,11 +26,11 @@ export class AlbumsService {
     return this.client.get<Photo[]>(`${this.BASE_URL}/albums/${id}/photos`)
   }
 
-  deleteAlbum(id:number){
+  deleteAlbum(id: number) {
     return this.client.delete(`${this.BASE_URL}/albums/${id}`)
   }
 
-  addAlbum(newAlbum: Album): Observable<Album>{
+  addAlbum(newAlbum: Album): Observable<Album> {
     return this.client.post<Album>(`${this.BASE_URL}/albums`, newAlbum);
   }
 }
